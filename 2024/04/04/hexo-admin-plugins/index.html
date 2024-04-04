@@ -9,7 +9,7 @@
     
     <title>
         
-            404 |
+            hexo admin plugins |
         
         MickChan
     </title>
@@ -136,15 +136,135 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="error-404-container border-box">
-        <div class="text-1 border-box flex-center">404</div>
-        <div class="text-2 border-box flex-center">
-            页面找不到
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        hexo admin plugins
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">MickChan</span>
+                                
+                                    <span class="author-badge">Lv1</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-04-04 19:53:10</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Thu Apr 04 2024 19:53:27 GMT+0800">2024-04-04 19:53:27</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body">
+                    
+
+                    <h1 id="Local-use-vs-deployment"><a href="#Local-use-vs-deployment" class="headerlink" title="Local use vs deployment"></a>Local use vs deployment</h1><p>This plugin was originally designed as a local editor – you run hexo locally, use <code>hexo-admin</code> to author posts, and then use <code>hexo generate</code> or <code>hexo deploy</code> to send the generated static HTML files up to github pages or some other static server.</p>
+<p>However, <code>hexo-admin</code> can be run on your live blog, as long as you’re using a non-static hosting service such as Heroku, DigitalOcean, etc. Static hosting services such as Github pages and Surge.sh does not support running hexo-admin from your live site. If you’re using Hexo admin from your live blog, you should definitely set up a password (see below) – otherwise anyone will be able to edit your content.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jaredly/hexo-admin/blob/master/docs/pasted-0.png?raw=true"><img   src="https://github.com/jaredly/hexo-admin/raw/master/docs/pasted-0.png?raw=true"  alt="posts view"></a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jaredly/hexo-admin/blob/master/docs/pasted-1.png?raw=true"><img   src="https://github.com/jaredly/hexo-admin/raw/master/docs/pasted-1.png?raw=true"  alt="editor view"></a></p>
+<h1 id="Quickstart"><a href="#Quickstart" class="headerlink" title="Quickstart"></a>Quickstart</h1><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/jaredly/hexo-admin#quickstart" ><i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="1-Setup-hexo-create-a-blog"><a href="#1-Setup-hexo-create-a-blog" class="headerlink" title="1. Setup hexo &amp; create a blog"></a>1. Setup hexo &amp; create a blog</h3><figure class="highlight plaintext"><figcaption><span>install -g hexo</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/</span><br><span class="line">hexo init my-blog</span><br><span class="line">cd my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Install-the-admin-start-things-up"><a href="#2-Install-the-admin-start-things-up" class="headerlink" title="2. Install the admin &amp; start things up"></a>2. Install the admin &amp; start things up</h3><p>shell notranslate position-relative overflow-auto<br>npm install –save hexo-admin<br>hexo server -d<br>open <a class="link"   target="_blank" rel="noopener" href="http://localhost:4000/admin/" >http://localhost:4000/admin/<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="3-Profit"><a href="#3-Profit" class="headerlink" title="3. Profit!"></a>3. Profit!</h3><p>The UI should be pretty discoverable – let me know if you can’t find something.</p>
+<h3 id="4-Password-protection"><a href="#4-Password-protection" class="headerlink" title="4. Password protection"></a>4. Password protection</h3><p>If you’re using Hexo admin on your live server, you want some password protection. To enable this, you just add a few config variables to your hexo <code>_config.yml</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username: myfavoritename</span><br><span class="line">password_hash: be121740bf988b2225a313fa1f107ca1</span><br><span class="line">secret: a secret something</span><br></pre></td></tr></table></figure>
+
+<p>The <code>password_hash</code> is the bcrypt hash of your password. The <code>secret</code> is used to make the cookies secure, so it’s a good idea to have it be long and complicated.</p>
+<p>A utility in Hexo admin’s Settings can hash your password and generate the <code>admin</code> section for you. Start Hexo and go to <code>Settings &gt; Setup authentification</code> and fill out your information. Copy the generated YAML into your <code>_config.yml</code>.</p>
+<p>Once that’s in place, start up your hexo server and going to <code>/admin/</code> will require you to enter your password.</p>
+
+                </div>
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/04/04/Hexo-Admin%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"
+                                   title="Hexo Admin后台管理"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Hexo Admin后台管理</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
-        <div class="text-3 border-box flex-center">
-            <a class="go-home" href="/">前往首页</a>
-        </div>
+
+        
     </div>
 </div>
 
@@ -195,6 +315,24 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -278,6 +416,20 @@
 
 
 <div class="">
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->
